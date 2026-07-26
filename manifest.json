@@ -1,0 +1,9 @@
+{
+	"id": "stop-sync-conflicts",
+	"name": "Stop Sync Conflicts",
+	"version": "1.0.0",
+	"minAppVersion": "1.5.0",
+	"description": "Holds editing on a note until Obsidian Sync has finished bringing it up to date, so you don't create sync conflicts.",
+	"author": "Alessandro Odetti",
+	"isDesktopOnly": false
+}

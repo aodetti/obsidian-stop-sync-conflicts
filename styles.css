@@ -1,0 +1,144 @@
+/* Stop Sync Conflicts — the hold overlay shown while a note is catching up. */
+
+.stop-sync-conflicts-host {
+	position: relative;
+}
+
+.stop-sync-conflicts-overlay {
+	position: absolute;
+	inset: 0;
+	z-index: var(--layer-popover);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--size-4-2);
+	overflow: auto;
+	cursor: not-allowed;
+	/* Stop mobile scroll/selection gestures reaching the editor underneath. */
+	touch-action: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+/*
+ * The dimming lives on a pseudo-element so the card itself stays fully
+ * opaque — `opacity` on the overlay would fade the message too.
+ */
+.stop-sync-conflicts-overlay::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-color: var(--background-primary);
+	opacity: 0.92;
+}
+
+.stop-sync-conflicts-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--size-4-2);
+	/* Must survive a narrow split pane and a phone screen. */
+	width: min(22rem, 100%);
+	max-width: 100%;
+	box-sizing: border-box;
+	padding: var(--size-4-4);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-l);
+	background-color: var(--background-secondary);
+	box-shadow: var(--shadow-s);
+	text-align: center;
+}
+
+.stop-sync-conflicts-heading {
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-2);
+}
+
+.stop-sync-conflicts-title {
+	font-size: var(--font-ui-medium);
+	font-weight: var(--font-semibold);
+	color: var(--text-normal);
+}
+
+.stop-sync-conflicts-spinner {
+	display: flex;
+	color: var(--text-accent);
+	animation: stop-sync-conflicts-spin 1.4s linear infinite;
+}
+
+.stop-sync-conflicts-detail {
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+	line-height: var(--line-height-tight);
+}
+
+.stop-sync-conflicts-countdown {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-faint);
+	font-variant-numeric: tabular-nums;
+}
+
+.stop-sync-conflicts-button {
+	margin-top: var(--size-4-2);
+	max-width: 100%;
+	cursor: pointer;
+}
+
+.stop-sync-conflicts-heading,
+.stop-sync-conflicts-detail,
+.stop-sync-conflicts-countdown {
+	max-width: 100%;
+	overflow-wrap: anywhere;
+}
+
+@keyframes stop-sync-conflicts-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.stop-sync-conflicts-spinner {
+		animation: none;
+	}
+}
+
+/* Settings — recent activity list. */
+
+.stop-sync-conflicts-activity {
+	max-height: 16rem;
+	overflow-y: auto;
+	padding: var(--size-4-2);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-m);
+	background-color: var(--background-secondary);
+	font-size: var(--font-ui-smaller);
+}
+
+.stop-sync-conflicts-activity-row {
+	display: flex;
+	gap: var(--size-4-2);
+	padding: var(--size-2-1) 0;
+	line-height: var(--line-height-tight);
+}
+
+.stop-sync-conflicts-activity-time {
+	flex-shrink: 0;
+	color: var(--text-faint);
+	font-family: var(--font-monospace);
+	font-variant-numeric: tabular-nums;
+}
+
+.stop-sync-conflicts-activity-message {
+	color: var(--text-muted);
+	word-break: break-word;
+}
+
+.stop-sync-conflicts-activity-empty {
+	color: var(--text-faint);
+}
