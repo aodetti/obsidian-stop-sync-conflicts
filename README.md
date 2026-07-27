@@ -3,6 +3,10 @@
 An Obsidian plugin that holds editing on a note until Obsidian Sync has finished
 bringing it up to date — so you stop creating sync conflicts.
 
+## Status
+
+**Plugin is still under development and validation**
+
 ## Why I built this
 
 I use the same vault from a laptop, a desktop and a phone, and I kept ending up
