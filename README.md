@@ -197,6 +197,20 @@ Note that the end-to-end suite and the simulation commands both stand in for
 real sync traffic. The behaviour against a live, connected sync account has not
 been exercised on a real subscription.
 
+## Disclaimer
+
+This plugin is designed never to modify, create or delete anything in your
+vault — it only stops keystrokes from reaching the editor, and every hold
+leaves the note exactly as it was. That is the intent, and the code is written
+that way on purpose.
+
+It is still software that hooks into undocumented Obsidian internals, and it
+comes with no warranty of any kind. **The author accepts no responsibility or
+liability for any lost, missing, corrupted or conflicted files or data,
+however caused, arising from using this plugin.** You use it at your own risk.
+Keep backups of your vault.
+
 ## License
 
-[0BSD](LICENSE)
+[0BSD](LICENSE) — which likewise provides the software "as is", without
+warranty of any kind.
